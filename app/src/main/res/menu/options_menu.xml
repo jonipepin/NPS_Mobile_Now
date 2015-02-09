@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<!--<item 
+		android:id="@+id/menuItem_userInfo" 
+		android:title="User Info"
+		android:titleCondensed="User Info" />
+
+	<item 
+		android:id="@+id/menuItem_emailSettings" 
+		android:title="Email Settings"
+		android:titleCondensed="Email Settings" />
+		
+	<item 
+		android:id="@+id/menuItem_schedule" 
+		android:title="Schedule"
+		android:titleCondensed="Schedule" /> -->
+	
+	<item 
+		android:id="@+id/menuItem_settings"
+		android:icon="@drawable/ic_menu_settings_holo_light" 
+		android:title="Settings"
+		android:titleCondensed="Settings" />
+	
+	<item
+        android:id="@+id/menuItem_share"
+        android:icon="@drawable/social_share"
+        android:title="Share"
+        android:titleCondensed="Share"/>
+	
+	<item
+        android:id="@+id/menuItem_feedback"
+        android:icon="@drawable/content_edit"
+        android:title="Feedback"
+        android:titleCondensed="Feedback"/>
+		
+</menu>

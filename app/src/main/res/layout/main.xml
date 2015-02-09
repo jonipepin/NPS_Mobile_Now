@@ -1,0 +1,556 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true" >
+
+    <com.shardul.nowlayout.NowLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tile_bg"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/musterCard"
+            style="@style/nowCardStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp"
+            tools:context=".MainActivity" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                tools:context=".MainActivity" >
+
+                <ImageView
+                    android:id="@+id/npsIcon"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:adjustViewBounds="true"
+                    android:padding="5dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/nps_main_icon_med" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="top"
+                    android:orientation="vertical"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="15dp"
+                    tools:context=".MainActivity" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Last Check: "
+                        android:textColor="#707070"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/lastMusterCheckText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingMultiplier="1.1"
+                        android:paddingLeft="10dp"
+                        android:text="Never"
+                        android:textColor="#505050" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Next Check: "
+                        android:textColor="#707070"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/nextMusterCheckText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingMultiplier="1.1"
+                        android:paddingLeft="10dp"
+                        android:text="None Scheduled"
+                        android:textColor="#505050" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/checkAgainTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="7dp"
+                    android:text="Check Now"
+                    android:textColor="#707070" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:background="#FF00CCFF"
+                android:padding="5dp" />
+
+            <TextView
+                android:id="@+id/musterStatusText"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Unknown"
+                android:textColor="#505050"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/libraryAvailableCard"
+            style="@style/nowCardStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp"
+            tools:context=".MainActivity" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:orientation="horizontal"
+                tools:context=".MainActivity" >
+
+                <ImageView
+                    android:id="@+id/libraryIcon"
+                    android:layout_width="0dp"
+                    android:layout_height="33dp"
+                    android:layout_weight="0.15"
+                    android:adjustViewBounds="true"
+                    android:padding="2dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/dkl" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.85"
+                    android:gravity="center_vertical"
+                    android:text="Dudley Knox Library"
+                    android:textColor="#707070"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/libraryStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="CLOSED"
+                android:textColor="#ff7070"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/librarySubStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textColor="#707070" />
+
+            <LinearLayout
+                android:id="@+id/libraryComputerStatusView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:context=".MainActivity" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="7dp"
+                    android:text="Computer Availability"
+                    android:textColor="#707070"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp"
+                    tools:context=".MainActivity" >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.33"
+                        android:orientation="vertical"
+                        tools:context=".MainActivity" >
+
+                        <TextView
+                            android:id="@+id/libraryUnavailableComputers"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="#DD0000"
+                            android:textSize="36sp" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Unavailable"
+                            android:textColor="#707070"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.33"
+                        android:orientation="vertical"
+                        tools:context=".MainActivity" >
+
+                        <TextView
+                            android:id="@+id/libraryAvailableComputers"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="#00DD00"
+                            android:textSize="40sp" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Available"
+                            android:textColor="#707070"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.33"
+                        android:orientation="vertical"
+                        tools:context=".MainActivity" >
+
+                        <TextView
+                            android:id="@+id/libraryPublicComputers"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="#707070"
+                            android:textSize="36sp" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Public"
+                            android:textColor="#707070"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lunchCard"
+            style="@style/nowCardStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp"
+            tools:context=".MainActivity" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:orientation="horizontal"
+                tools:context=".MainActivity" >
+
+                <ImageView
+                    android:id="@+id/lunchIcon"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="0.15"
+                    android:adjustViewBounds="true"
+                    android:padding="2dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/cafe" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.85"
+                    android:gravity="center_vertical"
+                    android:text="Del Monte Lunch Specials"
+                    android:textColor="#707070"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/lunch_special_menu"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingMultiplier="1.2"
+                android:padding="10dp"
+                android:text="(Hint: Spinning icon means it&apos;s checking!  Tap icon To check again.)"
+                android:textColor="#707070" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:background="#FF00CCFF"
+                android:padding="5dp" />
+
+            <TextView
+                android:id="@+id/lunch_special_date"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingTop="7dp"
+                android:textColor="#707070"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/eventsCard"
+            style="@style/nowCardStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp"
+            tools:context=".MainActivity" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:orientation="horizontal"
+                tools:context=".MainActivity" >
+
+                <ImageView
+                    android:id="@+id/eventsIcon"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="0.15"
+                    android:adjustViewBounds="true"
+                    android:padding="2dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/events" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.85"
+                    android:gravity="center_vertical"
+                    android:text="Upcoming Events"
+                    android:textColor="#707070"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/recentEvents"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="(tap icon to refresh)"
+                android:textColor="#707070" />
+
+            <TextView
+                android:id="@+id/moreEvents"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:paddingRight="10dp"
+                android:paddingTop="7dp"
+                android:text="See All"
+                android:textColor="#707070" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/newsCard"
+            style="@style/nowCardStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp"
+            tools:context=".MainActivity" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:orientation="horizontal"
+                tools:context=".MainActivity" >
+
+                <ImageView
+                    android:id="@+id/newsIcon"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="0.15"
+                    android:adjustViewBounds="true"
+                    android:padding="2dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/news" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.85"
+                    android:gravity="center_vertical"
+                    android:text="Latest Headlines"
+                    android:textColor="#707070"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/recentNews"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="(tap icon to refresh)"
+                android:textColor="#707070" />
+
+            <TextView
+                android:id="@+id/moreNews"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:paddingRight="10dp"
+                android:paddingTop="7dp"
+                android:text="See All"
+                android:textColor="#707070" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/calendarCard"
+            style="@style/nowCardStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="15dp"
+            tools:context=".MainActivity" >
+
+            <ImageView
+                android:id="@+id/calIcon"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="0.15"
+                android:adjustViewBounds="true"
+                android:padding="2dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/calendar" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.70"
+                android:gravity="center_vertical"
+                android:text="Academic Calendar"
+                android:textColor="#707070"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="0.15"
+                android:adjustViewBounds="true"
+                android:padding="2dp"
+                android:scaleType="fitEnd"
+                android:src="@drawable/navigation_next_item" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mapCard"
+            style="@style/nowCardStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="15dp"
+            tools:context=".MainActivity" >
+
+            <ImageView
+                android:id="@+id/mapIcon"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="0.15"
+                android:adjustViewBounds="true"
+                android:padding="2dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/map" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.70"
+                android:gravity="center_vertical"
+                android:text="Campus Map"
+                android:textColor="#707070"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="0.15"
+                android:adjustViewBounds="true"
+                android:padding="2dp"
+                android:scaleType="fitEnd"
+                android:src="@drawable/navigation_next_item" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="#d7d7d7" />
+
+        <LinearLayout
+            android:id="@+id/contactCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp" >
+
+            <TextView
+                android:id="@+id/contactDevText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Have a Suggestion, Question or Concern?"
+                android:textColor="#707070"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/contactDevText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Contact Developer"
+                android:textColor="#707070"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </com.shardul.nowlayout.NowLayout>
+
+</ScrollView>

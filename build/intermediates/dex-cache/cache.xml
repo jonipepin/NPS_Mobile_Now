@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/pepin/AndroidStudioProjects/NPS_Mobile_Now/app/build/intermediates/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="af64527b748983a75de9c0756e9768b56b240a49">
+        <dex dex="/Users/pepin/AndroidStudioProjects/NPS_Mobile_Now/app/build/intermediates/pre-dexed/debug/classes-ffe98a82408edbb759bb4715558c5027089d8219.jar" />
+    </item>
+    <item
+        jar="/Users/pepin/AndroidStudioProjects/NPS_Mobile_Now/app/libs/mail.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="29db85cb07136bc758cf6ea3bc5e5d04812e314f">
+        <dex dex="/Users/pepin/AndroidStudioProjects/NPS_Mobile_Now/app/build/intermediates/pre-dexed/debug/mail-306b626df7a36cfea5831130d2b27a5404a73577.jar" />
+    </item>
+    <item
+        jar="/Users/pepin/adt-bundle-mac-x86_64-20140702/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
+        <dex dex="/Users/pepin/AndroidStudioProjects/NPS_Mobile_Now/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-d8c4bd80b42dcd505a269fda3411eb9738aecc24.jar" />
+    </item>
+    <item
+        jar="/Users/pepin/AndroidStudioProjects/NPS_Mobile_Now/app/libs/jsoup-1.6.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b65281e9d00f255cdfab9e1880f7fc7a1fb1bffb">
+        <dex dex="/Users/pepin/AndroidStudioProjects/NPS_Mobile_Now/app/build/intermediates/pre-dexed/debug/jsoup-1.6.1-0bca2d206cd6276265192f3e4f5965965fa90a54.jar" />
+    </item>
+
+</items>

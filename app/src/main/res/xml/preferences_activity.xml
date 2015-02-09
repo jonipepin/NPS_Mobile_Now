@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+            android:title="NPS User Info">
+
+        <EditTextPreference
+            	android:title="User Name"
+                android:key="username"
+                android:dialogTitle="Edit User Name"
+                android:persistent="true" />
+        
+        <EditTextPreference 
+            	android:title="Password"
+            	android:key="password"
+                android:inputType="textPassword"
+                android:dialogTitle="Edit Password"
+                android:persistent="true" />
+
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+            android:title="Muster Check Scheduling">
+        
+        <CheckBoxPreference
+            android:key="schedulerEnabled"
+            android:title="Enable Scheduled Check"
+            android:summary="Conduct check daily at scheduled time" />
+        
+        <RingtonePreference
+            android:key="ringTone"
+            android:title="Notification Sound"
+            android:ringtoneType="notification"
+            android:summary="Choose ringtone for notifications"
+            android:persistent="true"
+            android:showDefault="true"
+            android:showSilent="true"
+            android:dependency="schedulerEnabled" />
+        
+        <TimePreference
+            android:key="scheduledTime"
+            android:summary="Set Check Time"
+            android:title="Scheduled Check Time"
+            android:dependency="schedulerEnabled" />
+        
+        <TimePreference
+            android:key="snoozeTime"
+            android:title="Snooze Time"
+            android:dialogTitle="Snooze Length (hrs:mins)"
+            android:summary="disabled"
+            android:dependency="schedulerEnabled" />
+
+    </PreferenceCategory>
+    
+   	<PreferenceCategory
+            android:title="Muster Check Email Settings">
+        
+        <ListPreference
+            android:title="Email Folder"
+			android:key="emailFolder"
+			android:persistent="true"
+			android:selectable="false"
+			android:summary="Update Folder List First" />
+        
+        <Preference
+            android:title="Update Email Folder List"
+            android:key="updateEmailFolders"
+			android:persistent="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

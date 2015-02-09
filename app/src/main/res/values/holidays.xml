@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="holidays">
+        <item>12186</item>
+        <item>12247</item>
+        <item>12282</item>
+        <item>12317</item>
+        <item>12327</item>
+        <item>13021</item>
+        <item>13049</item>
+        <item>13147</item>
+        <item>13185</item>
+        <item>13245</item>
+    </integer-array>
+</resources>
