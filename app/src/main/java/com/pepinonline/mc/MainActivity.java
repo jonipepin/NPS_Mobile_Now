@@ -45,6 +45,13 @@
  *    			- Hid library computer status display (availableComputersBlock)
  *    			  b/c dkl is not maintaining it.
  *    			- Updated Library URL
+ *    v14 1.1.0 - Fixed bug causing events to not display chronologically.
+ *    v15 1.2.0 - Updated academic calendar through Jan 2016
+ *              - Modified MainActivity layout so News and Events cards contain LinearLayout
+ *                that has clickable TextViews for each item.  Click goes to proper web page.
+ *              - Disabled WebChecker until I can get a version of the updated page; uses the
+ *                email checker by default now.
+ *
  */
 
 package com.pepinonline.mc;
