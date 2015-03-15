@@ -51,6 +51,7 @@
  *                that has clickable TextViews for each item.  Click goes to proper web page.
  *              - Disabled WebChecker until I can get a version of the updated page; uses the
  *                email checker by default now.
+ *    v16 1.2.1 - Updated library hours.
  *
  */
 
@@ -1011,9 +1012,9 @@ public class MainActivity extends SherlockActivity implements OnClickListener,
             case 3:
             case 4:
             case 5:
-                if (hour > 6 && hour < 22) {
+                if (hour > 6 && hour < 20) {
                     libraryIsOpen = true;
-                    statusChangeString = "The library will close today at 2200 PST";
+                    statusChangeString = "The library will close today at 2000 PST";
                 } else if (hour < 7) {
                     statusChangeString = "The library will open today at 0700 PST";
                 } else {
