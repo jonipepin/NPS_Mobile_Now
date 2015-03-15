@@ -1,14 +1,16 @@
 /** CustomSSLSocketFactory 
- * 
+ *
  *  Author: 		Joni Pepin, jpepin@nps.edu
  *  Date:			22 Dec 2011
  *  Description: 	Extend SSLSocketFactory so that the http client
  *  				can access https pages that have certificates 
  *  				from untrusted sources (such as the student check-in page).
- *  				
+ *
  */
 
 package com.pepinonline.mc.muster;
+
+import org.apache.http.conn.ssl.SSLSocketFactory;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -24,8 +26,6 @@ import java.security.cert.X509Certificate;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-
-import org.apache.http.conn.ssl.SSLSocketFactory;
 
 public class CustomSSLSocketFactory extends SSLSocketFactory {
     SSLContext sslContext = SSLContext.getInstance("TLS");
@@ -45,7 +45,7 @@ public class CustomSSLSocketFactory extends SSLSocketFactory {
             }
         };
 
-        sslContext.init(null, new TrustManager[] { tm }, null);
+        sslContext.init(null, new TrustManager[]{tm}, null);
     }
 
     @Override
