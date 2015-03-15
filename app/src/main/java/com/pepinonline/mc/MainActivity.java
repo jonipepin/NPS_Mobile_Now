@@ -101,6 +101,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.w3c.dom.CharacterData;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.w3c.dom.Text;
 import org.xml.sax.InputSource;
 
 import java.io.IOException;
@@ -213,9 +214,9 @@ public class MainActivity extends SherlockActivity implements OnClickListener,
     private String specialDate;
     private Calendar today;
     // News Card
-    private TextView recentNews, moreNews;
+    private TextView moreNews;
     // Events Card
-    private TextView recentEvents, moreEvents;
+    private TextView moreEvents;
     // Library
     private LinearLayout availableComputersBlock;
     private TextView libraryStatus, librarySubStatus, availableComputers, unavailableComputers, publicComputers;
@@ -402,12 +403,10 @@ public class MainActivity extends SherlockActivity implements OnClickListener,
 
         // News Card Views
         newsIcon = (ImageView) findViewById(R.id.newsIcon);
-        recentNews = (TextView) findViewById(R.id.recentNews);
         moreNews = (TextView) findViewById(R.id.moreNews);
 
         // Events Card Views
         eventsIcon = (ImageView) findViewById(R.id.eventsIcon);
-        recentEvents = (TextView) findViewById(R.id.recentEvents);
         moreEvents = (TextView) findViewById(R.id.moreEvents);
 
         // Library Available Terminal Card
@@ -427,8 +426,8 @@ public class MainActivity extends SherlockActivity implements OnClickListener,
         contactCard = (LinearLayout) findViewById(R.id.contactCard);
 
         Util.setFontRobotoRegular(this, musterStatusText, lastMusterCheckText, nextMusterCheckText,
-                specialMenuView, recentNews, moreNews, librarySubStatus,
-                checkMusterAgainText, moreEvents, recentEvents);
+                specialMenuView, moreNews, librarySubStatus,
+                checkMusterAgainText, moreEvents);
 
         Util.setFontRobotoMedium(this, libraryStatus, specialDateView);
 
@@ -1117,20 +1116,45 @@ public class MainActivity extends SherlockActivity implements OnClickListener,
 
     // get news items
     private void getNewsArticlesFromFile() {
+        
+        LinearLayout newsArea = (LinearLayout) findViewById(R.id.recentNewsLayout);
+        newsArea.removeAllViews();
+        
+        int marginPixels = dpToPixel(10);
+        
         ArticleRetriever retriever = new ArticleRetriever(this);
         List<Article> newsList = retriever.getArticlesFromFile(NEWS_ITEM_FILE);
         if (newsList != null && !newsList.isEmpty()) {
             int index = 0;
-            String newsString = "";
-            String spacer = "";
+
             while (index < 3 && index < newsList.size()) {
-                newsString += spacer;
-                newsString += newsList.get(index).getHeadline();
-                spacer = "\n\n";
+                final String link = newsList.get(index).getLink();
+
+                TextView item = new TextView(this);
+                //item.setTextColor(Color.parseColor("#707070"));
+                Util.setFontRobotoRegular(this, item);
+                item.setPadding(marginPixels, marginPixels, marginPixels, marginPixels);
+                item.setText(newsList.get(index).getHeadline());
+                item.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, 
+                                Uri.parse(link));
+                        startActivity(browserIntent);
+                    }
+                });
+                newsArea.addView(item);
+                
                 index++;
             }
-            recentNews.setText(newsString);
         }
+    }
+    
+    // converts number of pixels for the given dp value on this device
+    private int dpToPixel(int sizeInDp){
+        float scale = getResources().getDisplayMetrics().density;
+        int dpAsPixels = (int) (sizeInDp*scale + 0.5f);
+        return dpAsPixels;
     }
 
     // ------------- EVENTS CARD METHODS ------------------//
@@ -1160,8 +1184,12 @@ public class MainActivity extends SherlockActivity implements OnClickListener,
         // find the next occurring event and display it
         if (newsList != null && !newsList.isEmpty()) {
 
+            LinearLayout newsArea = (LinearLayout) findViewById(R.id.recentEventsLayout);
+            newsArea.removeAllViews();
+            
+            int marginPixels = dpToPixel(10);
+
             int closestIndex = 0;
-            String eventsContents = "";
 
             // sort articles by date
             Collections.sort(newsList, EVENT_ORDER);
@@ -1173,19 +1201,36 @@ public class MainActivity extends SherlockActivity implements OnClickListener,
             int index = closestIndex;
             String spacer = "";
             while (index - closestIndex < 3 && closestIndex < (newsList.size() - 1)) {
-                eventsContents += spacer;
+                String event = "";
+                
                 if (newsList.get(index).type == Type.NPS) {
-                    eventsContents += "<b><font color=\"#0099CC\">NPS - ";
+                    event += "<b><font color=\"#0099CC\">NPS - ";
                 } else {
-                    eventsContents += "<b><font color=\"#E9AB17\">MWR - ";
+                    event += "<b><font color=\"#E9AB17\">MWR - ";
                 }
-                eventsContents += newsList.get(index).getHeadline()
+
+                event += newsList.get(index).getHeadline()
                         + "</font></b>" + "<br>"
                         + newsList.get(index).getSubtitle();
-                spacer = "<br><br>";
+
+                final String link = newsList.get(index).getLink();
+
+                TextView item = new TextView(this);
+                Util.setFontRobotoRegular(this, item);
+                item.setPadding(marginPixels, marginPixels, marginPixels, marginPixels);
+                item.setText(Html.fromHtml(event));
+                item.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+                                Uri.parse(link));
+                        startActivity(browserIntent);
+                    }
+                });
+                newsArea.addView(item);
+                
                 index++;
             }
-            recentEvents.setText(Html.fromHtml(eventsContents));
         }
 
     }

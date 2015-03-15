@@ -371,13 +371,11 @@
                     android:textSize="20sp" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/recentEvents"
+            <LinearLayout
+                android:id="@+id/recentEventsLayout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="(tap icon to refresh)"
-                android:textColor="#707070" />
+                android:orientation="vertical" />
 
             <TextView
                 android:id="@+id/moreEvents"
@@ -425,14 +423,12 @@
                     android:textColor="#707070"
                     android:textSize="20sp" />
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/recentNews"
+            
+            <LinearLayout
+                android:id="@+id/recentNewsLayout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="(tap icon to refresh)"
-                android:textColor="#707070" />
+                android:orientation="vertical" />
 
             <TextView
                 android:id="@+id/moreNews"
@@ -534,7 +530,7 @@
             android:padding="10dp" >
 
             <TextView
-                android:id="@+id/contactDevText"
+                android:id="@+id/contactDevText1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -543,7 +539,7 @@
                 android:textSize="13sp" />
 
             <TextView
-                android:id="@+id/contactDevText"
+                android:id="@+id/contactDevText2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"

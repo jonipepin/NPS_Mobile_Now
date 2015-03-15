@@ -122,20 +122,23 @@ public class MusterCheckIntentService extends IntentService {
         try {
             String username = mcPrefs.getString("username", null);
             String password = mcPrefs.getString("password", null);
-            if (Util.onNpsNetwork()) {
-                WebChecker wc = new WebChecker(username, password);
-                int i = wc.musterCheck();
-                musterDate = wc.musterDate;
-                verifiedBy = "Website";
-                return i;
-            } else {
+            
+            /* Disable web check for now until I get a sample of the updated
+               muster page.*/
+//            if (Util.onNpsNetwork()) {
+//                WebChecker wc = new WebChecker(username, password);
+//                int i = wc.musterCheck();
+//                musterDate = wc.musterDate;
+//                verifiedBy = "Website";
+//                return i;
+//            } else {
                 String folder = mcPrefs.getString("emailFolder", null);
                 EmailChecker ec = new EmailChecker(getBaseContext(), username, password);
                 int j = ec.musterCheck(folder);
                 musterDate = ec.musterDate;
                 verifiedBy = "Email";
                 return j;
-            }
+//            }
         } catch (Exception e) {
             Logger.e(e.toString());
             return 3;
